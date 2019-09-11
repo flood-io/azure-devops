@@ -1,0 +1,30 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+- master
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+steps:
+- script: echo 'Lets run a Flood on Azure!'
+  displayName: 'Announce we are running a Flood'
+
+- task: PowerShell@2
+  inputs:
+    filePath: 'scripts/startflood.ps1'
+  displayName: 'Launch Flood'
+  env:
+    MY_FLOOD_TOKEN: $(flood_api_token)
+
+- task: PowerShell@2
+  inputs:
+    filePath: 'scripts/verifyflood.ps1'
+    failOnStderr: true
+  displayName: 'Flood & SLA Verification'
+  env:
+    MY_FLOOD_TOKEN: $(flood_api_token)
+    MY_FLOOD_UUID: $(flood_uuid)
