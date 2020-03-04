@@ -12,9 +12,11 @@
 $access_token = $env:MY_FLOOD_TOKEN
 $api_url = "https://api.flood.io"
 $script_path = 'scripts/jmeter/jmeter_1000rpm.jmx'
+$flood_project = 'azure-devops'
+$flood_name = 'myAzureTest'
 
 #Setup the API URI that contains all parameters required to start a Grid, Flood and test settings.
-$uri = "$api_url/api/floods?flood[tool]=jmeter&flood[threads]=1&flood[project]=Default&flood[privacy]=public&flood[name]=myAzureTest&flood[grids][][infrastructure]=demand&flood[grids][][instance_quantity]=1&flood[grids][][region]=us-east-1&flood[grids][][instance_type]=m5.xlarge&flood[grids][][stop_after]=10"
+$uri = "$api_url/api/floods?flood[tool]=jmeter&flood[threads]=150&flood[duration]=120&flood[project]=$flood_project&flood[privacy]=public&flood[name]=$flood_name&flood[grids][][infrastructure]=demand&flood[grids][][instance_quantity]=1&flood[grids][][region]=us-east-1&flood[grids][][instance_type]=m5.xlarge&flood[grids][][stop_after]=10"
 
 #Encode the Flood auth token with Base64 and use it as a header for our request to Flood API
 $bytes = [System.Text.Encoding]::ASCII.GetBytes($access_token)
