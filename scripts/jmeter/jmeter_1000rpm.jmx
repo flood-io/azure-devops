@@ -29,10 +29,10 @@
       <hashTree/>
       <kg.apc.jmeter.threads.UltimateThreadGroup guiclass="kg.apc.jmeter.threads.UltimateThreadGroupGui" testclass="kg.apc.jmeter.threads.UltimateThreadGroup" testname="jp@gc - Ultimate Thread Group" enabled="true">
         <collectionProp name="ultimatethreadgroupdata">
-          <collectionProp name="1833437111">
+          <collectionProp name="-2026990146">
             <stringProp name="385525939">${__P(threads,100)}</stringProp>
             <stringProp name="0">0</stringProp>
-            <stringProp name="138319285">${__P(rampup,1)}</stringProp>
+            <stringProp name="-7005631">${__P(rampup,30)}</stringProp>
             <stringProp name="1975080602">${__P(duration,120)}</stringProp>
             <stringProp name="49">1</stringProp>
           </collectionProp>
